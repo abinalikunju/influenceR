@@ -1,16 +1,5 @@
 #' Calculate and Plot Influence Measures
-#'
-#' @param data A data frame containing the variables in the model
-#' @param model An object of class lm
-#' @param measures Character vector of influence measures to calculate.
-#'   Options are "cook", "dffits", and "hadi". Default is all three.
-#'
-#' @return A ggplot object with the influence measures
-#' @export
-#'
-#' @importFrom stats cooks.distance
-#' @importFrom stats dffits
-#' @importFrom ggplot2 ggplot aes geom_point facet_wrap theme_minimal
+
 influence_plot <- function(data, model, measures = c("cook", "dffits", "hadi")) {
   if (!inherits(model, "lm")) {
     stop("model must be an object of class lm")
