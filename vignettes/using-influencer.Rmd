@@ -1,0 +1,46 @@
+---
+title: "InfluenceR - R Package"
+author: "Abin Alikunju"
+date: "`16/08/2024`"
+output: pdf_document
+---
+
+## Background
+
+InfluenceR is an R package designed to perform influence diagnostics on linear regression models. It calculates and visualizes three key influence measures:
+
+1. Cook's Distance Measure (Cook, 1977)
+2. DFFITS (Welsch and Kuh, 1977; Belsley, 1980)
+3. Hadi's Influence Measure (Hadi, 1992)
+
+These measures help identify influential observations in regression analysis, which is crucial for understanding the stability and reliability of model estimates.
+
+## Implementation Choices
+
+### Package Structure
+
+The package is structured around a main function `influence_plot()`, which calculates the influence measures and generates a visualization. This design allows for easy use and extension.
+
+### Influence Measures
+
+We chose to implement three influence measures to provide a comprehensive view of potential influential points:
+
+1. Cook's Distance: Measures the effect of deleting a given observation.
+2. DFFITS: Measures the change in the predicted value for a point when the point is left out of the regression.
+3. Hadi's Influence Measure: A robust measure that is less affected by masking effects.
+
+### Visualization
+
+We use ggplot2 for visualization, creating a faceted plot that allows easy comparison between different influence measures.
+
+## Rationale
+
+1. **Flexibility**: The package allows users to choose which influence measures to calculate and visualize.
+2. **Error Handling**: Robust error checking is implemented to handle common issues like NA values, infinite values, and mismatched dimensions.
+3. **Performance**: Calculations are optimized for speed, especially for larger datasets.
+4. **Extensibility**: The modular design allows for easy addition of new influence measures in the future.
+
+## Installation Instructions
+
+devtools::install_github("abinalikunju/InfluenceR")
+
